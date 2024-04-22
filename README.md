@@ -71,9 +71,12 @@ The proposed system includes:
 
 ### Software Commands
 
-- `scrapy crawl quotes_spider`: Run the web scraping module
+- `scrapy crawl quotes_spider`: Run the web scraping module 
 - `python indexer.py`: Run the indexing module
 - `python app.py`: Run the query processing module and start the Flask server
+- `curl -X POST -H "Content-Type: application/json" -d '{"query": "life"}' http://127.0.0.1:5000/query` : This curl command will send a POST request to your Flask server's /query endpoint with a JSON payload containing the query. The server will then process the query using the query_processor function and return the results as JSON.
+- `curl -X POST -H "Content-Type: application/json" -d '{"query":"life", "k":5}' http://127.0.0.1:5000/query` : With this modification, you can send a POST request with a JSON payload containing both query and k parameters to the /query endpoint. For example:
+
 
 ### Inputs
 

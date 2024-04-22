@@ -1,7 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-def query_processor(query, inverted_index, tfidf_matrix, file_paths):
+def query_processor(query, inverted_index, tfidf_matrix, file_paths, k=None):
     # Split the query into terms
     terms = query.lower().split()
 
@@ -23,6 +23,11 @@ def query_processor(query, inverted_index, tfidf_matrix, file_paths):
     top_indices = cosine_similarities.argsort()[::-1]
 
     results = []
+    
+    # Return top k results if k is provided
+    if k is not None:
+        top_indices = top_indices[:k]
+
     for idx in top_indices:
         file_path = file_paths[idx]
         results.append({

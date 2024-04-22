@@ -6,7 +6,7 @@ class QuotesSpider(scrapy.Spider):
         'https://www.goodreads.com/quotes',
     ]
     # Setting maximum page count
-    max_pages = 5
+    max_pages = 100
     current_page_count = 0
 
     # Setting maximum depth
@@ -25,7 +25,7 @@ class QuotesSpider(scrapy.Spider):
         # Extract quotes and authors
         for q in quotes:
             yield {
-                'text': q.css('div.quoteText::text').get().strip(),
+                'text': q.css('div.quoteText::text').get().replace('”','').replace('“','').strip(),
                 'author': q.css('span.authorOrTitle::text').get().strip(),
             }
         # Extract next page URL
@@ -42,9 +42,9 @@ class QuotesSpider(scrapy.Spider):
         filename = f'quotes_page_{self.current_page_count}.txt'
         with open(filename, 'w', encoding='utf-8') as f:
             for quote in response.css('div.quote'):
-                text = quote.css('div.quoteText::text').get().strip()
+                text = quote.css('div.quoteText::text').get().replace('”','').replace('“','').strip()
                 author = quote.css('span.authorOrTitle::text').get().strip()
-                f.write(f'"{text}" - {author}\n')
+                f.write(f'{text}-{author}\n')
 '''
         # Check depth and follow links recursively
         if response.meta.get('depth', 1) < self.max_depth:

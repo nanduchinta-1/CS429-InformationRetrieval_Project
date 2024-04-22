@@ -18,11 +18,17 @@ app = Flask(__name__)
 def query():
     data = request.json
     query = data.get('query')
+    k = data.get('k')  # Default to None if k is not provided
 
     if not query:
         return {"error": "Query is required"}, 400
 
-    results = query_processor(query, inverted_index, tfidf_matrix, file_paths)
+    if k is not None:
+        if not isinstance(k, int) or k <= 0:
+            return {"error": "k should be a positive integer"}, 400
+
+    results = query_processor(query, inverted_index, tfidf_matrix, file_paths, k)
+
     return jsonify(results)
 
 if __name__ == '__main__':

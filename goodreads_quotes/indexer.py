@@ -29,7 +29,7 @@ def create_inverted_index(quotes, vectorizer):
 # Main function
 if __name__ == '__main__':
     # Define file paths
-    file_paths = [f'quotes_page_{i}.txt' for i in range(1, 6)]  # Assuming you have quotes_page_1.txt to quotes_page_5.txt
+    file_paths = [f'quotes_page_{i}.txt' for i in range(1, 101)]  #Since we have 100 pages
     
     # Load quotes
     quotes = load_quotes(file_paths)
