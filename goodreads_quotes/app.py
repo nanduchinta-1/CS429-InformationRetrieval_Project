@@ -33,3 +33,5 @@ def query():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+## While running the app, see to it that you are in the same directory as the app.py file i.e, goodreads_quotes
