@@ -84,16 +84,8 @@ The proposed system includes:
 - **Query Processing Module**: `processor.py`
 - **Flask Module**:`app.py`
 
-Project_quotes/
-├── goodreads_quotes/
-│   ├── quotes_spider.py
-│   ├── indexer.py
-│   ├── processor.py
-│   ├── app.py
-│   ├── quotes_page_1.txt
-│   ├── quotes_page_2.txt
-│   └── ...
-└── ...
+### File Structure
+![alt text](image-2.png)
 
 ### Interfaces
 
