@@ -158,7 +158,15 @@ The project successfully developed a basic search engine for quotes. While the s
 `curl -X POST -H "Content-Type: application/json" -d '{"query": "albert","k":1}' http://127.0.0.1:5000/query`
 
 ![alt text](image-1.png)
-- 
+-  Additionally created a test case file named test_query_processor.py
+This test case is designed to validate the functionality of the `query_processor` function in the `processor.py` module. The function takes a query, an inverted index, a TF-IDF matrix, and a list of file paths as inputs, and it returns the top-ranked documents based on cosine similarity scores.
+### Running the Test: `python -m unittest test_query_processor.py`
+Test Scenario
+Input:
+Query: "life"
+Inverted index: A dictionary containing term-document mappings
+TF-IDF matrix: A matrix containing TF-IDF scores for each document
+File paths: A list of file paths corresponding to the documents
 
 ## Source Code
 
