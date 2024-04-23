@@ -8,7 +8,7 @@ class QuotesSpider(scrapy.Spider):
     # Setting maximum page count
     max_pages = 100
     current_page_count = 0
-
+    # Autothrottle is enabled in settings.py
     # Setting maximum depth
     DEPTH_LIMIT = 2
     
