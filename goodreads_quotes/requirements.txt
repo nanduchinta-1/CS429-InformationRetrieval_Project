@@ -1,4 +1,4 @@
-scikit-learn==0.24.2
-numpy==1.20.3
-scrapy==2.5.0
-flask==2.0.1
+scikit-learn
+numpy
+scrapy
+flask

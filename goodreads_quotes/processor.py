@@ -31,6 +31,7 @@ def query_processor(query, inverted_index, tfidf_matrix, file_paths, k=None):
     for idx in top_indices:
         file_path = file_paths[idx]
         results.append({
+            "query":query,
             "file_path": file_path,
             "score": cosine_similarities[idx]
         })
